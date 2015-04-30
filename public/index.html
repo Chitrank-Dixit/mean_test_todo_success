@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>The MEAN Stack</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	
+	</head>
+<body ng-app="">
+<div class="container" ng-controller="ServicesCtrl">
+	<h1>Service Client Maker</h1>
+	{{message}}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>
+					<input class="form-control" ng-model="serviceClient.name" />
+				</td>
+				<td>
+					<button class="btn btn-primary" ng-click="create()">Add</button>
+					<button class="btn btn-primary" ng-click="update()">Update</button>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="serviceClient in serviceClients">
+				<td>
+					{{serviceClient.name}}
+				</td>
+				<td>
+					<button class="btn btn-danger" ng-click="remove(serviceClient._id)">Remove</button>
+					<button class="btn btn-warning" ng-click="select(serviceClient._id)">Select</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="features/services/controller.js"></script>
+</body>
+</html>
